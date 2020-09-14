@@ -1,0 +1,3 @@
+//cd[starts-with(.//company, 'CBS')]
+
+/catalog/cd[2]/*[3]

@@ -1,0 +1,29 @@
+{
+  "configuration": {
+    "status": "warn",
+    "name": "Tests",
+    "appenders": {
+      "Console": {
+        "name": "TERMINAL",
+        "PatternLayout": {
+          "pattern": "%d{dd.MM.yyyy, HH:mm}    %p    %c - %m%n"
+        }
+      },
+      "File": {
+        "name": "FILE",
+        "fileName": "/home/bogdan/Loguri/xmloperations.txt",
+        "PatternLayout": {
+          "pattern": "%d{dd.MM.yyyy, HH:mm}    %p    %c - %m%n"
+        }
+      }
+    },
+    "loggers": {
+      "root": {
+        "level": "debug",
+        "AppenderRef": {
+          "ref": "FILE"
+        }
+      }
+    }
+  }
+}

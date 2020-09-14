@@ -1,0 +1,908 @@
+<head><title>Xml Operations Help</title></head>
+
+<style type="text/css">
+  html *
+  {
+	font-family: Consolas,Monospace;
+	font-size: 12px;
+  }
+  table
+  {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  table th
+  {
+    border: 1px solid black;
+  }
+  table td
+  {
+    border: 1px solid black;
+  }
+  code
+  {
+    color: midnightblue;
+  }
+  .empty-page
+  {
+    margin: 0px; 
+    height: 100%;   
+  }
+</style>
+
+<body oncontextmenu="return false;">
+
+<h1 id="begin">XML Operations</h1>
+
+<p/>
+
+<a href="#xml">XML</a><br/>
+<a href="#xpath">XPath</a><br/>
+&nbsp;&nbsp;&nbsp;<a href="#xpathstring">XPath String Functions</a><br/>
+<a href="#xsl">XSL</a><br/>
+<a href="#xquery">XQuery</a><br/>
+<a href="#xsd">XSD</a><br/>
+<a href="#dtd">DTD</a><br/>
+
+<p/>
+
+<b>Important:</b> when dealing with <b>import</b>s, use files <u>from disk</u> and save after each modification. You may use the <b>Autosave</b> option to achieve this automatically.
+<p/>
+
+<div id="xml"/>
+<br/>
+
+<b>XML</b>
+
+<p/>
+Activate with Ctrl+0.<br/>
+
+<p>Press Ctrl+Space near the end of an opening tag to insert a closing one.<p>
+
+<p><a href="#begin">Go top</a></p>
+
+<div id="xpath"/>
+<br/>
+
+<b>XPath</b>
+<p>Activate with Ctrl+1.<br/>
+Press Enter in the editing area to apply the current query. Multiple queries can be written in a single file, hit Ctrl+Enter to insert a new line.<p/>
+
+<p>Press Ctrl+Space to auto-complete a tag's or an attribute's name.<p>
+
+<p>Check the namespace prefixes (hit F4) if needed.</p>
+
+<p>The examples refer to the <a href="#xpathxml">XML</a> at the end of this section.</p>
+<table>
+          <tbody><tr>
+            <th>
+Expression
+</th>
+            <th>
+Refers to
+</th>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>./author</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements within the current context. Note that this is equivalent to the expression in the next row.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements within the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>first.name</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;first.name&gt;</code> elements within the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>/bookstore</code>
+              </p>
+            </td>
+            <td>
+              <p>The document element (<code>&lt;bookstore&gt;</code>) of this document.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>//author</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements in the document.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[/bookstore/@specialty=@style]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;book&gt;</code> elements whose <code>style</code> attribute value is equal to the <code>specialty</code> attribute value of the <code>&lt;bookstore&gt;</code> element at the root of the document.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author/first-name</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;first-name&gt;</code> elements that are children of an <code>&lt;author&gt;</code> element.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>bookstore//title</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;title&gt;</code> elements one or more levels deep in the <code>&lt;bookstore&gt;</code> element (arbitrary descendants). Note that this is different from the expression in the next row.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>bookstore/*/title</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;title&gt;</code> elements that are grandchildren of <code>&lt;bookstore&gt;</code> elements.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>bookstore//book/excerpt//emph</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;emph&gt;</code> elements anywhere inside <code>&lt;excerpt&gt;</code> children of <code>&lt;book&gt;</code> elements, anywhere inside the <code>&lt;bookstore&gt;</code> element.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>.//title</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;title&gt;</code> elements one or more levels deep in the current context. Note that this situation is essentially the only one in which the period notation is required.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author/*</code>
+              </p>
+            </td>
+            <td>
+              <p>All elements that are the children of <code>&lt;author&gt;</code> elements.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book/*/last-name</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;last-name&gt;</code> elements that are grandchildren of <code>&lt;book&gt;</code> elements.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>*/*</code>
+              </p>
+            </td>
+            <td>
+              <p>All grandchildren elements of the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>*[@specialty]</code>
+              </p>
+            </td>
+            <td>
+              <p>All elements with the <code>specialty</code> attribute.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>@style</code>
+              </p>
+            </td>
+            <td>
+              <p>The <code>style</code> attribute of the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>price/@exchange</code>
+              </p>
+            </td>
+            <td>
+              <p>The <code>exchange</code> attribute on <code>&lt;price&gt;</code> elements within the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>price/@exchange/total</code>
+              </p>
+            </td>
+            <td>
+              <p>Returns an empty node set, because attributes do not contain element children. This expression is allowed by the XML Path Language (XPath) grammar, but is not strictly valid.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[@style]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;book&gt;</code> elements with <code>style</code> attributes, of the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book/@style</code>
+              </p>
+            </td>
+            <td>
+              <p>The <code>style</code> attribute for all <code>&lt;book&gt;</code> elements of the current context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>@*</code>
+              </p>
+            </td>
+            <td>
+              <p>All attributes of the current element context.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>./first-name</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;first-name&gt;</code> elements in the current context node. Note that this is equivalent to the expression in the next row.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>first-name</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;first-name&gt;</code> elements in the current context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first <code>&lt;author&gt;</code> element in the current context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[first-name][3]</code>
+              </p>
+            </td>
+            <td>
+              <p>The third <code>&lt;author&gt;</code> element that has a <code>&lt;first-name&gt;</code> child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>my:book</code>
+              </p>
+            </td>
+            <td>
+              <p>The <code>&lt;book&gt;</code> element from the <code>my</code> namespace.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>my:*</code>
+              </p>
+            </td>
+            <td>
+              <p>All elements from the <code>my</code> namespace.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>@my:*</code>
+              </p>
+            </td>
+            <td>
+              <p>All attributes from the <code>my</code> namespace (this does not include unqualified attributes on elements from the <code>my</code> namespace).</p>
+            </td>
+          </tr>
+        </tbody></table>
+		
+        <p>Note that indexes are relative to the parent. Consider the following data:</p>
+        
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_d70ad9fe-8447-48c6-832c-e4dd9d594f2d');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_d70ad9fe-8447-48c6-832c-e4dd9d594f2d" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>&lt;x&gt;
+  &lt;y/&gt;
+  &lt;y/&gt;
+&lt;/x&gt;
+&lt;x&gt;
+  &lt;y/&gt;
+  &lt;y/&gt;
+&lt;/x&gt;
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+        <table>
+          <tbody><tr>
+            <th>
+Expression
+</th>
+            <th>
+Refers to
+</th>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>x/y[1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first <code>&lt;y&gt;</code> child of each <code>&lt;x&gt;</code>. This is equivalent to the expression in the next row.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>x/y[position() = 1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first <code>&lt;y&gt;</code> child of each <code>&lt;x&gt;</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>(x/y)[1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first <code>&lt;y&gt;</code> from the entire set of <code>&lt;y&gt;</code> children of <code>&lt;x&gt;</code> elements.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>x[1]/y[2]</code>
+              </p>
+            </td>
+            <td>
+              <p>The second <code>&lt;y&gt;</code> child of the first <code>&lt;x&gt;</code>.</p>
+            </td>
+          </tr>
+        </tbody></table>
+
+<br/>		
+
+   <table>
+          <tbody><tr>
+            <th>
+Expression
+</th>
+            <th>
+Refers to
+</th>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[last()]</code>
+              </p>
+            </td>
+            <td>
+              <p>The last <code>&lt;book&gt;</code> element of the current context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book/author[last()]</code>
+              </p>
+            </td>
+            <td>
+              <p>The last <code>&lt;author&gt;</code> child of each <code>&lt;book&gt;</code> element of the current context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>(book/author)[last()]</code>
+              </p>
+            </td>
+            <td>
+              <p>The last <code>&lt;author&gt;</code> element from the entire set of <code>&lt;author&gt;</code> children of <code>&lt;book&gt;</code> elements of the current context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[excerpt]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;book&gt;</code> elements that contain at least one <code>&lt;excerpt&gt;</code> element child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[excerpt]/title</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;title&gt;</code> elements that are children of <code>&lt;book&gt;</code> elements that also contain at least one <code>&lt;excerpt&gt;</code> element child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[excerpt]/author[degree]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;degree&gt;</code> element child, and that are children of <code>&lt;book&gt;</code> elements that also contain at least one <code>&lt;excerpt&gt;</code> element. </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[author/degree]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;book&gt;</code> elements that contain <code>&lt;author&gt;</code> children that in turn contain at least one <code>&lt;degree&gt;</code> child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[degree][award]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;degree&gt;</code> element child and at least one <code>&lt;award&gt;</code> element child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[degree and award]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;degree&gt;</code> element child and at least one <code>&lt;award&gt;</code> element child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[(degree or award) and publication]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;degree&gt;</code> or <code>&lt;award&gt;</code> and at least one <code>&lt;publication&gt;</code> as the children</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[degree and not(publication)]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;degree&gt;</code> element child and that contain no <code>&lt;publication&gt;</code> element children.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[not(degree or award) and publication]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;publication&gt;</code> element child and contain neither <code>&lt;degree&gt;</code> nor <code>&lt;award&gt;</code> element children.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[last-name = "Bob"]             </code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain at least one <code>&lt;last-name&gt;</code> element child with the value <code>Bob</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[last-name[1] = "Bob"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements where the first <code>&lt;last-name&gt;</code> child element has the value <code>Bob</code>. Note that this is equivalent to the expression in the next row.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[last-name [position()=1]= "Bob"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements where the first <code>&lt;last-name&gt;</code> child element has the value <code>Bob</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>degree[@from != "Harvard"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;degree&gt;</code> elements where the <code>from</code> attribute is not equal to <code>"Harvard"</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[. = "Matthew Bob"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements whose value is <code>Matthew Bob</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[last-name = "Bob" and ../price &amp;gt; 50]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that contain a <code>&lt;last-name&gt;</code> child element whose value is <code>Bob</code>, and a <code>&lt;price&gt;</code> sibling element whose value is greater than 50. </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>book[position() &amp;lt;= 3]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first three books (1, 2, 3).</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[not(last-name = "Bob")]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that do no contain <code>&lt;last-name&gt;</code> child elements with the value <code>Bob</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[first-name = "Bob"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that have at least one <code>&lt;first-name&gt;</code> child with the value <code>Bob</code>. </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[* = "Bob"]</code>
+              </p>
+            </td>
+            <td>
+              <p>all author elements containing any child element whose value is <code>Bob</code>. </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>author[last-name = "Bob" and first-name = "Joe"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;author&gt;</code> elements that has a <code>&lt;last-name&gt;</code> child element with the value <code>Bob</code> and a <code>&lt;first-name&gt;</code> child element with the value <code>Joe</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>price[@intl = "Canada"]</code>
+              </p>
+            </td>
+            <td>
+              <p>All <code>&lt;price&gt;</code> elements in the context node which have an <code>intl</code> attribute equal to <code>"Canada"</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>degree[position() &amp;lt; 3]</code>
+              </p>
+            </td>
+            <td>
+              <p>The first two <code>&lt;degree&gt;</code> elements that are children of the context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>p/text()[2]</code>
+              </p>
+            </td>
+            <td>
+              <p>The second text node in each <code>&lt;p&gt;</code> element in the context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>ancestor::book[1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The nearest <code>&lt;book&gt;</code> ancestor of the context node.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>ancestor::book[author][1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The nearest <code>&lt;book&gt;</code> ancestor of the context node and this <code>&lt;book&gt;</code> element has an <code>&lt;author&gt;</code> element as its child.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <code>ancestor::author[parent::book][1]</code>
+              </p>
+            </td>
+            <td>
+              <p>The nearest <code>&lt;author&gt;</code> ancestor in the current context and this <code>&lt;author&gt;</code> element is a child of a <code>&lt;book&gt;</code> element.</p>
+            </td>
+          </tr>
+        </tbody>
+	</table>
+
+<div id="xpathstring"/>
+<br/>
+
+<p><b>XPath String Functions:</b></p>
+
+<table>
+<tbody><tr><th>Functions</th><th>Description</th></tr>
+<tr><td><code>starts-with(<i>string1</i>, <i>string2</i>)</code></td><td>Returns true if the first string starts with the second string.</td></tr>
+<tr><td><code>contains(<i>string1</i>, <i>string2</i>)</code></td><td>Returns true if the first string contains the second string.</td></tr>
+<tr><td><code>substring(<i>string</i><i>offset</i><i>length</i>)</code></td><td>Returns a section of the string. The section starts at <i>offset</i> (which is a number), and is as long as the value provided at <i>length</i> (also a number).</td></tr>
+<tr><td><code>substring-before(<i>string1</i>, <i>string2</i>)</code></td><td>Returns the part of <i>string1</i> up until the first occurence of <i>string2</i>.</td></tr>
+<tr><td><code>substring-after(<i>string1</i>, <i>string2</i>)</code></td><td>Returns the part of <i>string1</i> after the first occurence of <i>string2</i>.</td></tr>
+<tr><td><code>string-length(<i>string</i>)</code></td><td>Returns the length of <i>string</i> (i.e. the number of characters).</td></tr>
+<tr><td><code>normalize-space(<i>string</i>)</code></td><td>Trims the leading and trailing space from <i>string</i>. Also replaces consecutive occurrences of white space with a single space.</td></tr>
+<tr><td><code>translate(<i>string1</i>, <i>string2</i>, <i>string3</i>)</code></td><td>Returns <i>string1</i> after any matching characters in <i>string2</i> have been replaced by the characters in <i>string3</i>.</td></tr>
+<tr><td><code>concat(<i>string1</i>, <i>string2</i>, <i>...</i>)</code></td><td>Concatenates all strings (i.e. joins them together).</td></tr>
+<tr><td><code>format-number(<i>number1</i>, <i>string1</i>, <i>string2</i>)</code></td><td>Returns a formatted string version of <i>number1</i> after applying <i>string1</i> as a format string. <i>string2</i> is an optional locale string.</td></tr>
+</tbody></table>
+
+<p/>
+
+<p><a href="#begin">Go top</a></p>
+
+<div id="xpathxml"/>
+<br/>
+
+<b>Example XML:</b>
+	
+<pre><span style="color:Blue;">&lt;?</span><span style="color:#A31515;">xml</span> <span style="color:Red;">version</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">1.0</span><span style="color:Black;">"</span><span style="color:Blue;">?&gt;</span>
+<span style="color:Blue;">&lt;?</span><span style="color:#A31515;">xml-stylesheet</span><span style="color:Gray;"> type="text/xsl" href="myfile.xsl" </span><span style="color:Blue;">?&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">bookstore</span> <span style="color:Red;">specialty</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">novel</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">book</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">autobiography</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>Joe<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">award</span><span style="color:Blue;">&gt;</span>Trenton Literary Review Honorable Mention<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">award</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>12<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">book</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">book</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">textbook</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>Mary<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>Selected Short Stories of
+        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>Mary<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>
+        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">editor</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>Britney<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">editor</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>55<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">book</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">magazine</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">glossy</span><span style="color:Black;">"</span> <span style="color:Red;">frequency</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">monthly</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>2.50<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">subscription</span> <span style="color:Red;">price</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">24</span><span style="color:Black;">"</span> <span style="color:Red;">per</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">year</span><span style="color:Black;">"</span><span style="color:Blue;">/&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">magazine</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">book</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">novel</span><span style="color:Black;">"</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">myfave</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>Toni<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">first-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">last-name</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">degree</span> <span style="color:Red;">from</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">Trenton U</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>B.A.<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">degree</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">degree</span> <span style="color:Red;">from</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">Harvard</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>Ph.D.<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">degree</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">award</span><span style="color:Blue;">&gt;</span>Pulitzer<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">award</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>Still in Trenton<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>Trenton Forever<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">publication</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">price</span> <span style="color:Red;">intl</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">Canada</span><span style="color:Black;">"</span> <span style="color:Red;">exchange</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">0.7</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>6.50<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">price</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">excerpt</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">p</span><span style="color:Blue;">&gt;</span>It was a dark and stormy night.<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">p</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">p</span><span style="color:Blue;">&gt;</span>But then all nights in Trenton seem dark and
+      stormy to someone who has gone through what
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">emph</span><span style="color:Blue;">&gt;</span>I<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">emph</span><span style="color:Blue;">&gt;</span> have.<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">p</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;</span><span style="color:#A31515;">definition-list</span><span style="color:Blue;">&gt;</span>
+        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">term</span><span style="color:Blue;">&gt;</span>Trenton<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">term</span><span style="color:Blue;">&gt;</span>
+        <span style="color:Blue;">&lt;</span><span style="color:#A31515;">definition</span><span style="color:Blue;">&gt;</span>misery<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">definition</span><span style="color:Blue;">&gt;</span>
+      <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">definition-list</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">excerpt</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">book</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">book</span> <span style="color:Red;">xmlns:my</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">uri:mynamespace</span><span style="color:Black;">"</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">leather</span><span style="color:Black;">"</span> <span style="color:Red;">price</span><span style="color:Blue;">=</span><span style="color:Black;">"</span><span style="color:Blue;">29.50</span><span style="color:Black;">"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">title</span><span style="color:Blue;">&gt;</span>Who's Who in Trenton<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">title</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>Robert Bob<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">author</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">my</span><span style="color:Blue;">:</span><span style="color:#A31515;">book</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">bookstore</span><span style="color:Blue;">&gt;</span>
+</pre>
+
+<p><a href="#xpath">Go XPath</a></p>
+<p><a href="#begin">Go top</a></p>
+
+<div id="xsl"/>
+<br/>
+
+<b>XSL</b>
+
+<p/>
+Activate with Ctrl+2.<br/>
+Press F5 or Ctrl+F5 to apply and view the results in browser (also with F6).<br/>
+
+<p>Press Ctrl+Space near the end of an opening tag to insert a closing one. Use the same keys' combination to auto-complete a tag's or an attribute's name.<p>
+
+<p>Use files <u>from disk</u> when dealing with xsl:import. Paths relative to the current XSL document will be considered.</p>
+
+<p/>
+Use <code>&lt;xsl:strip-space elements="*"/&gt;</code> (hold Ctrl while pressing the <b>Paste</b> button) to remove the blanks when appropriate.
+
+<p><a href="#begin">Go top</a></p>
+
+<div id="xquery"/>
+<br/>
+
+<b>XQuery</b>
+
+<p/>
+Activate with Ctrl+3.<br/>
+Press F5 or Ctrl+F5 to apply and view the results in browser (also with F6).<br/>
+
+<p/>
+Press Ctrl+Space near the end of an opening tag to insert a closing one. Use the same keys' combination to auto-complete a tag's or an attribute's name.
+
+<p/>
+Use <code>declare variable $sourceFilePath as xs:string external;</code> (hold Ctrl while pressing the <b>Paste</b> button) to declare the external variable <code>$sourceFilePath</code> containing the current XML file path. Usually it is used in the form: <code>doc($sourceFilePath)</code>.
+<p/>
+When the XML source is not saved on the disk, its content is automatically referred and, for example, the XPaths do not need an explicit source prefix in the <code>doc()</code> form.
+
+<p/>This program uses the <b>BaseX</b> open-source library.
+
+<p><a href="#begin">Go top</a></p>
+
+<div id="xsd"/>
+<br/>
+
+<b>XSD</b>
+
+<p/>
+Activate with Ctrl+4.<br/>
+Press F5 to apply.<br/>
+
+<p>Press Ctrl+Space near the end of an opening tag to insert a closing one. Use the same keys' combination to auto-complete a tag's or an attribute's name.<p>
+
+<p>Use files <u>from disk</u> when dealing with xsd:import. Paths relative to the current XSD document will be considered.</p>
+
+<p><a href="#begin">Go top</a></p>
+
+<div id="dtd"/>
+<br/>
+
+<b>DTD</b>
+
+<p/>
+Activate with Ctrl+5.<br/>
+Press F5 to apply.<br/>
+
+<p>Empty the DTD edit area when dealing with inline checks. Inline and file checks <u>cannot be done</u> at the same time.</p>
+
+<p><a href="#begin">Go top</a></p>
+
+<div class="empty-page"></div>
+
+</body>

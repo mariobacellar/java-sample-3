@@ -1,0 +1,30 @@
+{
+  "versionMajor": 7,
+  "versionMinor": 3,
+  "versionBuild": 6,
+  "buildFirst": {
+    "year": 2013,
+    "month": 9,
+    "dayOfMonth": 15,
+    "hourOfDay": 17,
+    "minute": 36,
+    "second": 0
+  },
+  "buildLast": {
+    "year": 2018,
+    "month": 3,
+    "dayOfMonth": 4,
+    "hourOfDay": 21,
+    "minute": 13,
+    "second": 12
+  },
+  "author": "Bogdan Rechi",
+  "name": "XML Operations",
+  "descriptions": {
+    "en": "XML query, transformation and validation"
+  },
+  "licenseResourcePaths": {
+    "en": "resources/bogdanrechi.xml.operations/en.license.txt"
+  },
+  "iconResourcePath": "resources/bogdanrechi.xml.operations/icons/mainbigxml.png"
+}

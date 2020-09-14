@@ -1,0 +1,12 @@
+{
+  "fontName": "Consolas",
+  "xsdWrap": true,
+  "fontStyle": 0,
+  "xsltWrap": true,
+  "xpathWrap": true,
+  "dtdWrap": true,
+  "xmlWrap": true,
+  "resultWrap": true,
+  "xqueryWrap": true,
+  "fontSize": 11
+}

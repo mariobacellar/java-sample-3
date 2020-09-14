@@ -1,0 +1,30 @@
+<books>
+   <book>
+      <title>Introduction to XQuery</title>
+      <description>A beginner's guide to XQuery that covers sequences and FLOWR expressions</description>
+      <type>softcover</type>
+      <sales-count>155</sales-count>
+      <price>19.95</price>
+   </book>
+  <book>
+      <title>Document Transformations with XQuery</title>
+      <description>How to transform complex documents like DocBook, TEI and DITA</description>
+      <type>hardcover</type>
+      <sales-count>105</sales-count>
+      <price>59.95</price>
+   </book>
+  <book>
+      <title>Document Transformations with XQuery</title>
+      <description>How to transform complex documents like DocBook, TEI and DITA</description>
+      <type>hardcover</type>
+      <sales-count>105</sales-count>
+      <price>59.95</price>
+   </book>
+  <book>
+      <title>Document Transformations with XQuery</title>
+      <description>How to transform complex documents like DocBook, TEI and DITA</description>
+      <type>hardcover</type>
+      <sales-count>105</sales-count>
+      <price>59.95</price>
+   </book>
+ </books>

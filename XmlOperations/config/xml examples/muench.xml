@@ -1,0 +1,32 @@
+<records id="100">
+  <contact id="0001" id2="qqq" id1="ewropw">
+    <title>Mr</title>
+    <forename>John</forename>
+    <surname>Smith</surname>
+  </contact>
+  <contact id="0002">
+    <title>Dr</title>
+    <forename>Amy</forename>
+    <surname>Jones</surname>
+  </contact>
+  <contact id="0003">
+    <title>Dr</title>
+    <forename>BBBBBB</forename>
+    <surname>Jackson</surname>
+  </contact>
+  <contact id="0003">
+    <title>Dr</title>
+    <forename>Gigi</forename>
+    <surname>Jones</surname>
+  </contact>
+  <contact id="0003">
+    <title>Dr</title>
+    <forename>Mimi</forename>
+    <surname>Jones</surname>
+  </contact>
+  <contact id="0003">
+    <title>Dr</title>
+    <forename>AAAAA</forename>
+    <surname>Jackson</surname>
+  </contact>
+</records>

@@ -1,0 +1,292 @@
+<rcdb>  
+   <parc>
+      <name>Heide-Park</name>
+      <address>Heidenhof, Soltau, Lower Saxony 29614 Germany</address>
+      <status>Operating</status>
+      <existingRollerCoasters>
+         <coaster>
+            <name>Big Loop</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1983</opened>
+            <height>30</height>
+         </coaster>
+         <coaster>
+            <name>Small Loop</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1983</opened>
+            <height>30</height>
+         </coaster>
+         <coaster>
+            <name>Colossos</name>
+            <type>Wood</type>
+            <design>Sit Down</design>
+            <opened>2001</opened>
+            <height>60</height>
+         </coaster>
+         <coaster>
+            <name>Desert Race</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2007</opened>
+            <height>19</height>
+         </coaster>
+         <coaster>
+            <name>Grottenblitz</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1985</opened>
+            <height>6</height>
+         </coaster>
+         <coaster>
+            <name>Limit</name>
+            <type>Steel</type>
+            <design>Inverted</design>
+            <opened>1999</opened>
+            <height>33</height>
+         </coaster>
+         <coaster>
+            <name>Schweizer Bobbahn</name>
+            <type>Steel</type>
+            <design>Bobsled</design>
+            <opened>1994</opened>
+            <height>27</height>
+         </coaster>
+      </existingRollerCoasters>
+   </parc>
+   
+   <parc>
+      <name>Phantasialand</name>
+      <address>Berggeiststrasse 31-41, Bruehl, North Rhine-Westphalia 50321 Germany</address>
+      <status>Operating</status>
+      <existingRollerCoasters>
+         <coaster>
+            <name>Black Mamba</name>
+            <type>Steel</type>
+            <design>Inverted</design>
+            <opened>2006</opened>
+            <height>26</height>
+         </coaster>
+         <coaster>
+            <name>Colorado Adventure</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1996</opened>
+            <height>26</height>
+         </coaster>
+         <coaster>
+            <name>Temple of the Nighthawk (2001 to now)</name>
+            <name>Space Center (1988 to 2000)</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1988</opened>
+         </coaster>
+         <coaster>
+            <name>Temple of the King (2005 to now)</name>
+            <name>King Center (1988 to 2005)</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1988</opened>
+         </coaster>
+         <coaster>
+            <name>Winjas</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2002</opened>
+            <height>17</height>
+         </coaster>
+      </existingRollerCoasters>
+      <pastRollerCoasters>
+         <coaster>
+            <name>Gebirgsbahn</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1975</opened>
+            <height>28</height>
+            <closed>2001</closed>
+         </coaster>
+         <coaster>
+            <name>Grand Canyon Bahn</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1978</opened>
+            <closed>2001</closed>
+         </coaster>
+      </pastRollerCoasters>
+   </parc>
+   
+   <parc>
+      <name>Europa Park</name>
+      <address>Europapark-Straße 2, Rust, Baden Wuerttemberg 77977 Germany</address>
+      <status>Operating</status>
+      <existingRollerCoasters>
+         <coaster>
+            <name>Alpenexpress</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1984</opened>
+            <height>6</height>
+         </coaster>
+         <coaster>
+            <name>Atlantica SuperSplash</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2005</opened>
+            <height>30</height>
+         </coaster>
+         <coaster>
+            <name>Euro Mir</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1997</opened>
+            <height>28</height>
+         </coaster>
+         <coaster>
+            <name>Eurosat</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1989</opened>
+            <height>26</height>
+         </coaster>
+         <coaster>
+            <name>Matterhorn Blitz</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1999</opened>
+            <height>16</height>
+         </coaster>
+         <coaster>
+            <name>Pegasus</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2006</opened>
+            <height>15</height>
+         </coaster>
+         <coaster>
+            <name>Poseidon</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2000</opened>
+            <height>23</height>
+         </coaster>
+         <coaster>
+            <name>Schweizer Bahn</name>
+            <type>Steel</type>
+            <design>Bobsled</design>
+            <opened>1985</opened>
+            <height>19</height>
+         </coaster>
+          <coaster>
+            <name>Silver Star</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2002</opened>
+            <height>73</height>
+         </coaster>
+          <coaster>
+            <name>Silver Star Extra</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2002</opened>
+            <height>73</height>
+         </coaster>
+         
+      </existingRollerCoasters>
+   </parc>
+   
+   <parc>
+      <name>Wiener Prater</name>
+      <address>Prater 9, Vienna, Vienna 1020 Austria</address>
+      <status>Operating</status>
+      <existingRollerCoasters>
+         <coaster>
+            <name>Auto Berg Bahn</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+         </coaster>
+         <coaster>
+            <name>Boomerag</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1992</opened>
+            <height>36</height>
+         </coaster>
+         <coaster>
+            <name>Der Zug des Manitu</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>2002</opened>
+         </coaster>
+         <coaster>
+            <name>Dizzy Mouse</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1998</opened>
+            <height>13</height>
+         </coaster>
+         <coaster>
+            <name>Hochschaubahn</name>
+            <type>Wood</type>
+            <design>Sit Down</design>
+            <opened>1950</opened>
+            <height>15</height>
+            <history> History: 	Owned by Kremser company. Built as a replacement for a former Hochschaubahn scenic railway that operated from 1909 to 1944 (lost in World War II). Located in area Nr. 113 </history>
+         </coaster>
+         <coaster>
+            <name>Megablitz</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1994</opened>
+            <height>19</height>
+         </coaster>
+         <coaster>
+            <name>Super 8er Bahn</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1997</opened>
+            <height>21</height>
+         </coaster>
+         <coaster>
+            <name>Volare</name>
+            <type>Steel</type>
+            <design>Flying</design>
+            <opened>2004</opened>
+            <height>21</height>
+         </coaster>
+         <coaster>
+            <name>Wilde Maus</name>
+            <type>Steel</type>
+            <design>Sit Down</design>
+            <opened>1997</opened>
+            <height>15</height>
+         </coaster>
+         
+      </existingRollerCoasters>
+   </parc>
+   
+   
+   
+ <persons>
+  <person>
+  	<name>Hans</name>
+  	<coaster>Winjas</coaster>
+  	<coaster>Colorado Adventure</coaster>
+  	<coaster>Black Mamba</coaster>
+  	<coaster>Big Loop</coaster>
+  	<coaster>Colossos</coaster>
+  	<coaster>Desert Race</coaster>
+  	<coaster>Space Center (1988 to 2000)</coaster>
+  	<coaster>Limit</coaster>
+  </person>  
+  
+  <person>
+  	<name>Franz</name>
+  	<coaster>Colossos</coaster>
+  	<coaster>Colorado Adventure</coaster>
+  	<coaster>Space Center (1988 to 2000)</coaster>	
+  </person>  	
+</persons>  
+
+</rcdb>
+
